@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\IlveIlceJson\IlveIlceJson.csproj" />
+    <ProjectReference Include="..\ILveILCEJSON_ENTITIYMODELS\ILveILCEJSON_ENTITIYMODELS.csproj" />
+  </ItemGroup>
+
+</Project>
