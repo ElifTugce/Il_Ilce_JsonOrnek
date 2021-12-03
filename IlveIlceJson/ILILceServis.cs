@@ -80,7 +80,7 @@ namespace IlveIlceJson
 
             // çevirici kullanmamız lazım çünkü ağrı ---> agri diye yazılır...
             // ismi json un içindeki gibi değiştirdik.
-            ilAdi = DilIslemleri.TurkceKarakterleriIngilizceyeCevir(ilAdi);
+            ilAdi = DilIslemleri.TurkceKarakterleriIngilizceyeCevir(ilAdi.ToLower());
             
             // Single : Verilen koşula göre istenilen elementi liste halinde getirir.
 
@@ -98,11 +98,11 @@ namespace IlveIlceJson
                     ILCE bilgim = new ILCE();
                     bilgim.Ismi = data["belediye-ismi"] == null ? "" : data["belediye-ismi"].ToObject<string>();
                     bilgim.Tel = data["belediye-tel"] ==null?"":data["belediye-tel"].ToObject<string>();
-                    bilgim.Faks = data["belediye-faks"].ToObject<string>();
+                    bilgim.Faks = data["belediye-faks"] == null ? "" : data["belediye-faks"].ToObject<string>();
                     bilgim.Mail = data["belediye-mail"] == null ? "" : data["belediye-mail"].ToObject<string>();
                     bilgim.Web = data["belediye-web"] == null ? "" : data["belediye-web"].ToObject<string>();
-                    bilgim.Nufus = data["nufus"].ToObject<string>();
-                    bilgim.Bilgi = data["bilgi"].ToObject<string>();
+                    bilgim.Nufus = data["nufus"] == null ? "" : data["nufus"].ToObject<string>();
+                    bilgim.Bilgi = data["bilgi"] == null ? "" : data["bilgi"].ToObject<string>();
                     liste.Add(bilgim);
                 }
             }
