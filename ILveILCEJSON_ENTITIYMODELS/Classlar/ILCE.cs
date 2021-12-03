@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ILveILCEJSON_ENTITIYMODELS.Classlar
 {
-    class ILCE
+    public class ILCE
     {
-        public string Plaka { get; set; }
+        public byte Plaka { get; set; }
         public string Ismi { get; set; }
         public string Tel { get; set; }
         public string Faks { get; set; }
@@ -18,5 +18,10 @@ namespace ILveILCEJSON_ENTITIYMODELS.Classlar
         public string Alankodu { get; set; }
         public string Bolge { get; set; }
         public string Bilgi { get; set; }
+
+        public void BilgileriGetir()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

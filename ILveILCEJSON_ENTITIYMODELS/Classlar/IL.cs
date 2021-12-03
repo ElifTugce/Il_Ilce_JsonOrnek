@@ -6,10 +6,14 @@ using System.Threading.Tasks;
 
 namespace ILveILCEJSON_ENTITIYMODELS.Classlar
 {
-    class IL
+    public class IL
     {
+
+        // C# Property kurallarına göre IL isimli classı oluşturduk.
+        // JSONIL class deserialize olunca oradaki dataları IL Classından türeteceğiz ve nesneye aktaracağız.
+
         public string ILAdi { get; set; }
-        public string PlakaKodu { get; set; }
+        public byte PlakaKodu { get; set; }
         public List<String> Ilceleri { get; set; }
     }
 }

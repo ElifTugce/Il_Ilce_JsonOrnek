@@ -31,8 +31,8 @@ namespace Il_Ilce_JsonOrnek
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ıLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ıLCEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ıLSorgulamaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ıLCEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ıLCESorgulamaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -45,7 +45,7 @@ namespace Il_Ilce_JsonOrnek
             this.ıLCEToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(580, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(844, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -57,6 +57,13 @@ namespace Il_Ilce_JsonOrnek
             this.ıLToolStripMenuItem.Size = new System.Drawing.Size(34, 24);
             this.ıLToolStripMenuItem.Text = "IL";
             // 
+            // ıLSorgulamaToolStripMenuItem
+            // 
+            this.ıLSorgulamaToolStripMenuItem.Name = "ıLSorgulamaToolStripMenuItem";
+            this.ıLSorgulamaToolStripMenuItem.Size = new System.Drawing.Size(179, 26);
+            this.ıLSorgulamaToolStripMenuItem.Text = "IL Sorgulama";
+            this.ıLSorgulamaToolStripMenuItem.Click += new System.EventHandler(this.ıLSorgulamaToolStripMenuItem_Click);
+            // 
             // ıLCEToolStripMenuItem
             // 
             this.ıLCEToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -65,23 +72,18 @@ namespace Il_Ilce_JsonOrnek
             this.ıLCEToolStripMenuItem.Size = new System.Drawing.Size(50, 24);
             this.ıLCEToolStripMenuItem.Text = "ILCE";
             // 
-            // ıLSorgulamaToolStripMenuItem
-            // 
-            this.ıLSorgulamaToolStripMenuItem.Name = "ıLSorgulamaToolStripMenuItem";
-            this.ıLSorgulamaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.ıLSorgulamaToolStripMenuItem.Text = "IL Sorgulama";
-            // 
             // ıLCESorgulamaToolStripMenuItem
             // 
             this.ıLCESorgulamaToolStripMenuItem.Name = "ıLCESorgulamaToolStripMenuItem";
-            this.ıLCESorgulamaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.ıLCESorgulamaToolStripMenuItem.Size = new System.Drawing.Size(195, 26);
             this.ıLCESorgulamaToolStripMenuItem.Text = "ILCE Sorgulama";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(580, 519);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(844, 628);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
