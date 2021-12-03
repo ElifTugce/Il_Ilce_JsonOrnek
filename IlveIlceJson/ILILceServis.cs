@@ -64,11 +64,50 @@ namespace IlveIlceJson
                 detaylıBilgi.Bolge = data["nufus"].ToObject<string>();
                 detaylıBilgi.Bilgi = data["bolge"].ToObject<string>();
                 detaylıBilgi.Nufus = data["bilgi"].ToString();
+                liste.Add(detaylıBilgi);
                 
             }
 
 
         return liste;
+        }
+        public List<ILCE> ILAdinaGoreILceleriGetir(string ilAdi)
+        {
+            List<ILCE> liste = new List<ILCE>();
+            JObject j = JObject.Parse(JsonString);
+
+            List<string> ilcelerListem = ilServisi.IlleriGetir().Single(x => x.ILAdi == ilAdi).Ilceleri;
+
+            // çevirici kullanmamız lazım çünkü ağrı ---> agri diye yazılır...
+            // ismi json un içindeki gibi değiştirdik.
+            ilAdi = DilIslemleri.TurkceKarakterleriIngilizceyeCevir(ilAdi);
+            
+            // Single : Verilen koşula göre istenilen elementi liste halinde getirir.
+
+            // ilçeler de json içinde ingilizce karakterli halde yazıyor.
+            // Bu neden onu da çevirmemiz gerekti.
+            ilcelerListem = ilcelerListem.Select(x => DilIslemleri.TurkceKarakterleriIngilizceyeCevir(x.ToLower())).ToList();
+            foreach (var item in ilcelerListem)
+            {
+                var data = j.SelectToken(ilAdi.ToLower()).SelectToken(item);
+
+                
+
+                if (data != null) // bazı illerin ilçelerinde null gelme durumuna yakalanmayalım.
+                {
+                    ILCE bilgim = new ILCE();
+                    bilgim.Ismi = data["belediye-ismi"] == null ? "" : data["belediye-ismi"].ToObject<string>();
+                    bilgim.Tel = data["belediye-tel"] ==null?"":data["belediye-tel"].ToObject<string>();
+                    bilgim.Faks = data["belediye-faks"].ToObject<string>();
+                    bilgim.Mail = data["belediye-mail"] == null ? "" : data["belediye-mail"].ToObject<string>();
+                    bilgim.Web = data["belediye-web"] == null ? "" : data["belediye-web"].ToObject<string>();
+                    bilgim.Nufus = data["nufus"].ToObject<string>();
+                    bilgim.Bilgi = data["bilgi"].ToObject<string>();
+                    liste.Add(bilgim);
+                }
+            }
+
+            return liste;
         }
     }
 }

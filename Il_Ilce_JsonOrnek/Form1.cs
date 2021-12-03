@@ -31,5 +31,23 @@ namespace Il_Ilce_JsonOrnek
             this.LayoutMdi(MdiLayout.TileVertical);
 
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ıLCESorgulamaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.ActiveMdiChild !=null)
+            {
+                this.ActiveMdiChild.Hide();
+            }
+
+            FormILeAitILceleriSorgulama frmIlce = new FormILeAitILceleriSorgulama();
+            frmIlce.MdiParent = this;
+            frmIlce.Show();
+            this.LayoutMdi(MdiLayout.TileVertical);
+        }
     }
 }

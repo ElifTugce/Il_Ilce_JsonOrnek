@@ -51,13 +51,64 @@ namespace Il_Ilce_JsonOrnek
 
                 listView1.Items.Add(deger);
             }
+
+            //GroupBox başlangıçta gizli olmalıdır.
+            groupBoxIL.Enabled = false;
+            groupBoxIL.Visible = false;
+
+            //Detay göster şeklinde sağ tık menüsü gerekiyor.
+            // Bu kontrol toolboxta var istersek designer ekranında toolboxtan çekip form üzerine yerleştirebiliriz.
+            // Ama biz bunu designerdan yapmayıp code ekranından yapacağız.
+            
+
         }
         
 
     private void btnSec_Click(object sender, EventArgs e)
         {
-            //ILILceServis deneme = new ILILceServis();
-            //deneme.BilgileriGetir();
+            //comboboxta hangi ili seçtiyse onun bilgilerini listview de görelim.
+
+
+            // 1.YÖNTEM
+            //IL secilenIL = (IL)comboBoxILSecimi.SelectedItem;
+
+            // 2.YÖNTEM
+            IL secilenIL = comboBoxILSecimi.SelectedItem as IL;
+
+            // Linq ile şart yazıyorum.
+            // where şartını kullandık. Verilen koşula göre bilgileri getirir. Liste olarak döndürür.
+            // FirstorDefault ise where den dönen liste elemanlarından sadece birini almamızı sağlar.
+            ILCE secilenILBilgisi =
+            ILILceServisim.BilgileriGetir()
+            .Where(x => x.Plaka == secilenIL.PlakaKodu)
+            .FirstOrDefault();
+
+            listView1.Items.Clear();
+            ListViewItem deger = new ListViewItem();
+            deger.Text = secilenILBilgisi.Ismi;
+            deger.Tag = secilenILBilgisi;
+            deger.SubItems.Add(secilenILBilgisi.Tel);
+            deger.SubItems.Add(secilenILBilgisi.Faks);
+            deger.SubItems.Add(secilenILBilgisi.Mail);
+            deger.SubItems.Add(secilenILBilgisi.Web);
+            listView1.Items.Add(deger);
+
+
+        }
+
+        private void detayGosterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            groupBoxIL.Enabled = true;
+            groupBoxIL.Visible = true;
+
+            ILCE secilenIL = (ILCE)
+                listView1.FocusedItem.Tag;
+            richTextBoxIL.Text = secilenIL.Bilgi;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
